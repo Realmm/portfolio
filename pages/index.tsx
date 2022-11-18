@@ -1,80 +1,39 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
+import "animate.css";
+import Nav from "../components/Nav";
+import Name from "../components/Name";
+import AboutArrowButton from "../components/AboutArrowButton";
+import About from "../components/About";
+import Portfolio from "../components/Portfolio";
+import Contact from "../components/Contact";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <div className="bg-black w-full h-screen text-white">
-        <Nav />
-        <Title/>
-      </div>
-    </>
-  );
-};
-
-const Nav = () => {
-  type NavItemProps = {
-    content: string;
-    link: string;
-  };
-
-  const NavItem = (props: NavItemProps) => {
-    return (
-      <a className="font-semibold" href={props.link}>
-        {props.content}
-      </a>
-    );
-  };
-
-  const Links = () => {
-    return (
-      <div className="space-x-10 p-4">
-        <NavItem content="About" link="#about" />
-        <NavItem content="Portfolio" link="#portfolio" />
-        <NavItem content="Contact" link="#contact" />
-      </div>
-    );
-  };
-
-  return (
-    <>
-      <Links />
-    </>
-  );
-};
-
-const Title = () => {
-
-  const allContent = [
-    "FullStack Developer"
-  ]
-
   const [state, setState] = useState<{
-    content: string,
-    len: number
-  }>({content: "", len: 0})
+    open: boolean;
+  }>({ open: false });
 
-  const write = () => {
-    const element = document.getElementById("mod-title") 
-    if (element === undefined) return;
-    element!!.innerHTML += state.content.charAt(state.len)
-  }
-
-  useEffect(() => {
-    setTimeout(write, 50)
-  }, [])
+  useEffect(() => {}, [state]);
 
   return (
     <>
-    <div className="bg-red-400 w-full h-max text-center pt-20 font-semibold text-5xl">
-      <span>James Andrew</span>
-      <br />
-      <br />
-      <span>and I am a </span>
-      <span id="mod-title">{state.content}</span>
-    </div>
+      <div className="bg-black w-full min-h-screen h-max text-white">
+        <Nav
+          onOpen={() => setState({ open: true })}
+          onClose={() => setState({ open: false })}
+        />
+        <div className="h-screen grid bg-home-bg bg-no-repeat">
+          <Name />
+          <AboutArrowButton />
+        </div>
+        <div className={state.open ? "hidden" : ""}>
+          <About />
+          <Portfolio/>
+          <Contact/>
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
