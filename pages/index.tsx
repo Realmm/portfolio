@@ -28,8 +28,8 @@ const Home: NextPage = () => {
         </div>
         <div className={state.open ? "hidden" : ""}>
           <About />
-          <Portfolio/>
-          <Contact/>
+          <Portfolio />
+          <Contact />
         </div>
       </div>
     </>
