@@ -6,8 +6,8 @@ import "animate.css";
 const About = () => {
   return (
     <>
-      <div id="about" className="h-max">
-        <ProfilePicture/>
+      <div id="about" className="h-max md:flex">
+        <ProfilePicture />
         <Description />
       </div>
     </>
@@ -16,8 +16,8 @@ const About = () => {
 
 const ProfilePicture = () => {
   return (
-    <div className="p-10 w-full md:w-1/2 h-max flex justify-items-center md:float-right">
-      <img className="rounded-full" src={grayBoy.src} alt="Me" />
+    <div className="p-10 w-full md:w-1/2 h-max flex justify-items-center">
+      <img className="rounded-full w-full m-auto" src={grayBoy.src} alt="Me" />
     </div>
   );
 };
@@ -40,7 +40,7 @@ const Description = () => {
         <div
           className={
             (state.open ? "h-max " : "h-12 ") +
-            "hover:cursor-pointer p-2 bg-blue-600 mt-6 rounded-xl"
+            "hover:cursor-pointer p-2 bg-blue-600 mt-6 rounded-xl justify-self-start"
           }
           onClick={() => setState({ open: !state.open })}
         >
@@ -135,7 +135,7 @@ const Description = () => {
           element={<MinecraftDesc />}
         />
         <ExpandableButton
-          title="Fullstack experience"
+          title="Front-end experience"
           element={<FullstackDesc />}
         />
       </div>

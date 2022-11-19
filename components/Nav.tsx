@@ -27,7 +27,7 @@ const Nav = (props: NavProps) => {
   const NavItem = (props: NavItemProps) => {
     return (
       <>
-        <a className="font-semibold" href={props.link}>
+        <a className="font-semibold text-white" href={props.link}>
           {props.content}
         </a>
       </>
@@ -125,7 +125,7 @@ const Nav = (props: NavProps) => {
         <div className="block visible md:invisible md:hidden p-4">
           <OpenMenuButton />
         </div>
-        <div className="hidden invisible md:visible md:block">
+        <div className="hidden md:block">
           <Links />
         </div>
       </div>

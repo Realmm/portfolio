@@ -15,30 +15,53 @@ const Portfolio = () => {
 
         <Carousel
           elements={[
-            <Project linkRef="" color={"bg-red-200"} key={1} />,
-            <Project linkRef="" color={"bg-blue-200"} key={2} />,
-            <Project linkRef="" color={"bg-green-200"} key={3} />,
+            <Project
+              name="MetaCity"
+              subName="Codebase for a Minecraft server"
+              linkRef="https://github.com/Realmm/metacity"
+              bgImg={grayBoy.src}
+              alt="MetaCity"
+              key={1}
+            />,
+            <Project
+              name="RealmLib"
+              subName="Library"
+              linkRef="https://github.com/Realmm/RealmLib"
+              bgImg={grayBoy.src}
+              alt="RealmLib"
+              key={2}
+            />,
+            <Project
+              name="RealmCommons"
+              subName="Library"
+              linkRef="https://github.com/Realmm/RealmCommons"
+              bgImg={grayBoy.src}
+              alt="RealmCommons"
+              key={3}
+            />,
           ]}
           title="Minecraft"
         />
-        <Carousel
+        {/* <Carousel
           elements={[
-            <Project linkRef="" color={"bg-red-200"} key={1} />,
-            <Project linkRef="" color={"bg-blue-200"} key={2} />,
-            <Project linkRef="" color={"bg-green-200"} key={3} />,
-            <Project linkRef="" color={"bg-orange-200"} key={4} />,
+            <Project linkRef="" alt="" bgImg={"bg-red-200"} key={1} />,
+            <Project linkRef="" alt="" bgImg={"bg-blue-200"} key={2} />,
+            <Project linkRef="" alt="" bgImg={"bg-green-200"} key={3} />,
+            <Project linkRef="" alt="" bgImg={"bg-orange-200"} key={4} />,
           ]}
           title="Websites"
-        />
+        /> */}
       </div>
     </>
   );
 };
 
 type ProjectProps = {
-  color: string;
   linkRef: string;
-  // imgRef: string;
+  bgImg: string;
+  alt: string;
+  name: string;
+  subName: string;
 };
 
 const Project = (props: ProjectProps) => {
@@ -49,10 +72,28 @@ const Project = (props: ProjectProps) => {
         rel="noopener noreferrer"
         target="_blank"
         className={
-          "w-full h-24 sm:h-32 md:h-48 lg:h-64 xl:h-96 rounded-2xl m-4 " +
-          props.color
+          "w-full sm:w-full sm:h-96 md:h-40 lg:h-64 xl:h-96 rounded-2xl"
         }
-      ></a>
+      >
+        <div className="bg-black w-full h-full rounded-xl">
+          <div className="h-full m-auto">
+            <div className="h-full flex px-4">
+              <div className="hidden sm:block absolute w-32 sm:w-60 md:w-48 text-white sm:text-3xl md:text-base lg:text-lg font-bold z-10 p-4">
+                <span className="">{props.name}</span>
+                <br />
+                <span className="text-sm sm:text-lg md:text-base font-normal">
+                  {props.subName}
+                </span>
+              </div>
+              <img
+                className="w-full rounded-xl opacity-60 hover:opacity-100 focus:opacity-100 object-cover"
+                alt={props.alt}
+                src={props.bgImg}
+              ></img>
+            </div>
+          </div>
+        </div>
+      </a>
     </>
   );
 };
@@ -72,6 +113,12 @@ const Carousel = (props: CarouselProps) => {
     if (state.elements.length >= 1) mapped.push(state.elements[0]);
     if (state.elements.length >= 2) mapped.push(state.elements[1]);
     if (state.elements.length >= 3) mapped.push(state.elements[2]);
+    return mapped;
+  };
+
+  const firstElement = () => {
+    const mapped = [];
+    if (state.elements.length >= 1) mapped.push(state.elements[0]);
     return mapped;
   };
 
@@ -121,9 +168,12 @@ const Carousel = (props: CarouselProps) => {
   return (
     <>
       <Title />
-      <div className="w-11/12 m-auto flex">
+      <div className="w-4/5 sm:w-11/12 m-auto flex">
         <Scroll left={true} />
-        <div className="w-4/5 flex">{firstThreeElements()}</div>
+        <div className="w-4/5 flex md:hidden">
+          {firstElement()}
+        </div>
+        <div className="w-4/5 hidden md:flex">{firstThreeElements()}</div>
         <Scroll left={false} />
       </div>
     </>
