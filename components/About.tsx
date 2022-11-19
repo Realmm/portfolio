@@ -128,7 +128,7 @@ const Description = () => {
     <>
       <div className="leading-relaxed w-full md:w-1/2 text-sm md:p-16 p-8">
         <span className="font-semibold">
-          I am a 23yr old, New Zealand based, fullstack software engineer
+          I am a 23yr old, New Zealand based, front-end software engineer
         </span>
         <ExpandableButton
           title="Java/Minecraft experience"
