@@ -15,12 +15,15 @@ const Name = () => {
           <Typewriter
             options={{
               strings: [
-                "I am a Fullstack Developer",
+                "I am a front-end developer",
+                "I enjoy designing 'easy-on-the-eyes' UI/UX",
                 "I love working with Java/Kotlin",
                 "I enjoy solving problems",
                 "I create websites",
                 "I create Minecraft plugins",
                 "I am always creating something",
+                "I love creating something from nothing",
+                "I love all things coding",
               ],
               autoStart: true,
               loop: true,

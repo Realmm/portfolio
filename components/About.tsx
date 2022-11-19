@@ -97,13 +97,13 @@ const Description = () => {
     );
   };
 
-  const FullstackDesc = () => {
+  const FrontendDesc = () => {
     return (
       <>
         <span>
-          I touched on creating fullstack sites many times throughout my 6 years
-          of developing, however I have never worked creating fullstack sites in
-          a professional capacity.
+          I touched on creating sites many times throughout my 6 years of
+          developing, however I have never worked creating sites in a
+          professional capacity.
         </span>
         <br />
         <br />
@@ -117,8 +117,8 @@ const Description = () => {
         <br />
         <br />
         <span>
-          I have 2 years of experience with React, and Typescript, TailwindCSS.
-          I also have 1 year of experience with Next.js.
+          I have 1 year of experience with React, Typescript, TailwindCSS
+          and Next.js
         </span>
       </>
     );
@@ -136,7 +136,7 @@ const Description = () => {
         />
         <ExpandableButton
           title="Front-end experience"
-          element={<FullstackDesc />}
+          element={<FrontendDesc />}
         />
       </div>
     </>
